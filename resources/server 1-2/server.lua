@@ -248,7 +248,7 @@ function _internalAddMessage(transmitter, receiver, message, owner)
     }
     local id = MySQL.Sync.insert(Query, Parameters)
     return MySQL.Sync.fetchAll(Query2, {
-        ['@id'] = id
+        ['@id'] = id.insertId
     })[1]
 end
 
