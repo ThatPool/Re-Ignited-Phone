@@ -12,7 +12,7 @@ function TchatAddMessage (channel, message)
     ['@message'] = message
   }
   MySQL.Async.insert(Query, Parameters, function (id)
-    MySQL.Async.fetchAll(Query2, { ['@id'] = id }, function (reponse)
+    MySQL.Async.fetchAll(Query2, { ['@id'] = id.insertId }, function (reponse)
       TriggerClientEvent('gcPhone:tchat_receive', -1, reponse[1])
     end)
   end)
