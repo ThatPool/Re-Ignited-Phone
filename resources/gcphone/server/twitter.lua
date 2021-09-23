@@ -268,7 +268,7 @@ AddEventHandler('gcPhone:twitter_setAvatarUrl', function(username, password, ava
     ['@password'] = password,
     ['@avatarUrl'] = avatarUrl
   }, function (result)
-    if (result == 1) then
+    if (result.changedRows == 1) then
       TriggerClientEvent('gcPhone:twitter_setAccount', sourcePlayer, username, password, avatarUrl)
       TwitterShowSuccess(sourcePlayer, 'Twitter Info', 'APP_TWITTER_NOTIF_AVATAR_SUCCESS')
     else
